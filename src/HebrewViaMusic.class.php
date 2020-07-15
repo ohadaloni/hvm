@@ -26,6 +26,7 @@ class HebrewViaMusic extends Hvm {
 		));
 	}
 	/*------------------------------*/
+	/*------------------------------*/
 	public function editText() {
 		$row = $this->Mmodel->getById("hebrewViaMusic", $_REQUEST['id']);
 		$this->Mview->showTpl("hebrewViaMusic/editText.tpl", array(
