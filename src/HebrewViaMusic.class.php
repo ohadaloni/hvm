@@ -7,11 +7,11 @@ class HebrewViaMusic extends Hvm {
 	}
 	/*------------------------------------------------------------*/
 	public function index() {
-		$this->add();
 		$this->listSongs();
 	}
 	/*------------------------------------------------------------*/
 	public function listSongs() {
+		$this->add();
 		$sql = "select * from hebrewViaMusic order by date desc";
 		$rows = $this->Mmodel->getRows($sql);
 		$this->Mview->showTpl("hebrewViaMusic/listSongs.tpl", array(
