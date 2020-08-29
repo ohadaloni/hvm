@@ -46,17 +46,7 @@ class Hvm extends Mcontroller {
 				$this->Mview->setCookie("lastVisit", $url);
 			}
 		}
-		$this->Mview->register_modifier("terse", array("Hvm", "terse",));
-	}
-	/*------------------------------*/
-	public static function terse($str, $numWords = 7) {
-		$words = explode(" ", $str);
-		$cnt = count($words);
-		if ( $cnt <= $numWords )
-			return($str);
-		$words = array_slice($words, 0, $numWords);
-		$str = implode(" ", $words)." ...";
-		return($str);
+		$this->Mview->register_modifier("terse", array("Mutils", "terse",));
 	}
 	/*------------------------------------------------------------*/
 	protected function after() {
@@ -227,7 +217,7 @@ class Hvm extends Mcontroller {
 		$this->dbUpdate("users", $loginRow['id'], array(
 			'passwd' => $newDbPasswd,
 		));
-		$this->Mview->msg("Pawword changed");
+		$this->Mview->msg("Password changed");
 	}
 	/*------------------------------------------------------------*/
 	/*------------------------------------------------------------*/
