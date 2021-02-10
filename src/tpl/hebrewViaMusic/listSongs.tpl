@@ -47,8 +47,6 @@
 						>{$row.translated|terse:2}<img src="/images/edit.png" /></a>
 					{/if}
 				</td>
-				</td>
-
 
 				<td>
 					{if $row.youtube}
