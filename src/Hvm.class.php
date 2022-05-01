@@ -155,16 +155,8 @@ class Hvm extends Mcontroller {
 		return(true);
 	}
 	/*------------------------------------------------------------*/
-	private function isAjax() {
-		$http_x_requested_with = @$_SERVER['HTTP_X_REQUESTED_WITH'];
-		$isAjax =
-			$http_x_requested_with &&
-			strtolower($http_x_requested_with) == "xmlhttprequest" ;
-		return($isAjax);
-	}
-	/*------------------------------*/
 	private function showMargins() {
-		if ( $this->isAjax() ) {
+		if ( Mutils::isAjax() ) {
 			return(false);
 		}
 		$nots = array(
