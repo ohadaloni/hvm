@@ -16,8 +16,6 @@ class Hvm extends Mcontroller {
 		$this->loginId = HvmLogin::loginId();
 		$this->loginName = HvmLogin::loginName();
 		$this->loginType = HvmLogin::loginType();
-
-		Mutils::setenv("debugLevel", 1);
 	}
 	/*------------------------------------------------------------*/
 	/*------------------------------------------------------------*/
