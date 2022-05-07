@@ -32,10 +32,7 @@ class Hvm extends Mcontroller {
 			$this->Mview->showTpl("header.tpl");
 			$menu = new Menu;
 			$menu->index();
-			$msgs = Msession::get('msgBuf');
-			$this->Mview->showTpl("msgs.tpl", array(
-				'msgs' => $msgs,
-			));
+			$this->Mview->showMsgs();
 		}
 		$method = @$_SERVER['REQUEST_METHOD'];
 		if ( $method == "GET" ) {
