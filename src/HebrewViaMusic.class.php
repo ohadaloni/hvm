@@ -43,7 +43,7 @@ class HebrewViaMusic extends Hvm {
 	}
 	/*------------------------------*/
 	public function update() {
-		$this->Mmodel->dbUpdate("hebrewViaMusic", $_REQUEST['id'], $_REQUEST);
+		$this->dbUpdate("hebrewViaMusic", $_REQUEST['id'], $_REQUEST);
 		$this->redir();
 	}
 	/*------------------------------------------------------------*/
@@ -51,7 +51,7 @@ class HebrewViaMusic extends Hvm {
 		$id = $_REQUEST['id'];
 		$ok = @$_REQUEST['ok'];
 		if ( $ok == "on" )
-			$this->Mmodel->sql("delete from hebrewViaMusic where id = $id");
+			$this->dbDelete("hebrewViaMusic", $id);
 		else
 			$this->Mview->error("remove: box not checked. ignoring.");
 		$this->redir();
@@ -63,7 +63,7 @@ class HebrewViaMusic extends Hvm {
 	/*------------------------------*/
 	public function insert() {
 		$_REQUEST['date'] = date("Y-m-d");
-		$id = $this->Mmodel->dbInsert("hebrewViaMusic", $_REQUEST);
+		$id = $this->dbInsert("hebrewViaMusic", $_REQUEST);
 		$this->redir();
 	}
 	/*------------------------------------------------------------*/
