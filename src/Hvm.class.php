@@ -5,8 +5,6 @@ class Hvm extends Mcontroller {
 	protected $loginName;
 	protected $loginId;
 	protected $loginType;
-	/*------------------------------*/
-	private $startTime;
 	/*------------------------------------------------------------*/
 	public function __construct() {
 		parent::__construct();
@@ -23,7 +21,6 @@ class Hvm extends Mcontroller {
 		ini_set('max_execution_time', 10);
 		ini_set("memory_limit", "5M");
 
-		$this->startTime = microtime(true);
 		$this->Mview->assign(array(
 			'loginName' => $this->loginName,
 		));
@@ -47,11 +44,6 @@ class Hvm extends Mcontroller {
 	protected function after() {
 		if ( ! $this->showMargins())
 			return;
-		$endTime = microtime(true);
-		$time = $endTime - $this->startTime ;
-		$millis = $time * 1000;
-		$millis = round($millis, 3);
-		$this->Mview->msg("Running Time: $millis milliseconds");
 		$this->Mview->showTpl("footer.tpl");
 		$this->Mview->showTpl("foot.tpl");
 	}
